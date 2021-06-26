@@ -1,0 +1,15 @@
+<h4>
+    Intenal server error - refreshing the page will make the error disappear!
+</h4>
+<ng-container *ngIf="error" >
+    <h5 class="text-danger">
+        Error: {{error.message}}
+    </h5>
+    <p class="font-weight-bold">What can you do when you saw this message?</p>
+    <p>You can:</p>
+    <ol>
+        <li>Check everything</li>
+    </ol>
+    <p>Stack trace:</p>
+    <code class="mt-5" style="background-color: whitesmoke;">{{error.details}}</code>
+</ng-container>
