@@ -29,6 +29,8 @@
         Multiple
         <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
 
+        <div class="container mb-2"></div>
+
         Single
         <input type="file" ng2FileSelect [uploader]="uploader" />
     </div>
@@ -58,15 +60,15 @@
         <div>
             <div>
                 Queue progress:
-                <div class="progress" style="">
+                <div class="progress mb-3" style="">
                     <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
                 </div>
             </div>
-            <button type="button" class="btn btn-success btn-s"
+            <button type="button" class="btn btn-success btn-s mr-4"
                     (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
                 <span class="fa fa-upload"></span> Upload all
             </button>
-            <button type="button" class="btn btn-warning btn-s"
+            <button type="button" class="btn btn-warning btn-s mr-4"
                     (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
                 <span class="fa fa-ban"></span> Cancel all
             </button>

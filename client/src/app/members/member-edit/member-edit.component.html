@@ -22,11 +22,11 @@
                      </div>
                      <div>
                         <strong>Last Active:</strong>
-                        <p>{{member.lastActive}}</p>
+                        <p>{{member.lastActive | timeago}}</p>
                      </div>
                      <div>
                         <strong>Member since:</strong>
-                        <p>{{member.created}}</p>
+                        <p>{{member.created | date: 'dd MMMM yyyy'}}</p>
                      </div>         
                  </div>
                  <div class="card-footer">
@@ -36,7 +36,7 @@
     </div>
     <div class="col-8">
         <tabset class="member-tabset">
-            <tab heading='About {{member.knownAs}}'>
+            <tab heading='About me'>
                 <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
                     <h4>Introduction:</h4>
                     <textarea class="form-control" [(ngModel)]="member.introduction" name="introduction" rows="6"></textarea>
