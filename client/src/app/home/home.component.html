@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div *ngIf="register" class="container mt-5">
     <div *ngIf="!registerMode" style="text-align: center;">
         <h1>Find your match</h1>
         <p class="lead">What are you waiting for...all you need is sign up!</p>
@@ -14,4 +14,8 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="container mt-5 text-center">
+    <img src="./assets/cover.jpg" alt="cover">
 </div>
