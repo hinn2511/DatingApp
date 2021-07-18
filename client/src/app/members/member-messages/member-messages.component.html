@@ -3,10 +3,45 @@
         <div *ngIf="(messageService.messageThread$ | async)?.length === 0">
             <p class="mb-4 mt-4 text-center">No messages yet... Say hi by using message box below</p>       
         </div>
-        <ul *ngIf="(messageService.messageThread$ | async).length > 0" class="chat">
+        <ul 
+            #scrollMe
+            style="overflow: scroll; height: 500px;"
+            [srcollTop]="scrollMe.scrollHeight"
+            *ngIf="(messageService.messageThread$ | async).length > 0" 
+            class="chat">
             <li *ngFor="let message of (messageService.messageThread$ | async)">
-                <div>
-                    <span class="chat-img float-right">
+                <div *ngIf="message.senderUsername !== username ; else recipient">
+                    <span class="chat-img float-right ml-3 mr-1">
+                        <img 
+                            src="{{message.senderPhotoUrl || './assets/user.png'}}" 
+                            alt="{{message.senderUsername}}"
+                            class="rounded-circle">
+                    </span>
+                    <div class="chat-body">
+                        <div class="header float-right">
+                            <small class="text-muted">
+                                <span class="fa fa-clock-o"> {{message.messageSent | timeago}}</span>
+                                <span 
+                                    class="text-danger"
+                                    *ngIf="!message.dateRead 
+                                        && message.senderUsername !== username">
+                                    (unread)
+                                </span>
+                                <span 
+                                    class="text-success"
+                                    *ngIf="message.dateRead 
+                                        && message.senderUsername !== username">
+                                    (read {{message.dateRead | timeago}} )
+                                </span>
+                            </small>
+                        </div>
+                        <br>
+                        <p class="d-flex flex-column align-items-end">{{message.content}}</p>
+                    </div>
+                </div>
+
+                <ng-template #recipient>
+                    <span class="chat-img float-left ml-1 mr-3">
                         <img 
                             src="{{message.senderPhotoUrl || './assets/user.png'}}" 
                             alt="{{message.senderUsername}}"
@@ -32,7 +67,7 @@
                         </div>
                         <p>{{message.content}}</p>
                     </div>
-                </div>
+                </ng-template>
             </li>
         </ul>
     </div>
