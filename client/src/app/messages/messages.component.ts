@@ -13,7 +13,7 @@ export class MessagesComponent implements OnInit {
   pagination: Pagination;
   container: 'Unread';
   pageNumber = 1;
-  pageSize = 5;
+  pageSize = 10;
   loading = false;
 
   constructor(private messageService: MessageService) { }
@@ -38,9 +38,11 @@ deleteMessage(id: number) {
   })
 }
 
-  pageChanged(event: any) {
-    this.pageSize = event.page;
-    this.loadMessages();
-  }
+pageChanged(event: any) {
+  if (this.pageNumber !== event.page) {
+     this.pageNumber = event.page;
+     this.loadMessages()
+   }
+ }
 
 }
