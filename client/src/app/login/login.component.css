@@ -1,0 +1,9 @@
+.bg-image {
+    background-image: url('/../assets/login_cover.jpg');
+    background-size: 100%;
+    margin: -20px -111.6px 0  -111.6px;
+  }
+
+  .card {
+      border-radius: 10px;
+  }

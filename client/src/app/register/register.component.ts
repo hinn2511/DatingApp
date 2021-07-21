@@ -3,6 +3,8 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Vali
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../_services/account.service';
+import { take } from 'rxjs/operators';
+import { User } from '../_models/user';
 
 @Component({
   selector: 'app-register',
@@ -10,54 +12,27 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  @Output() cancelRegister = new EventEmitter();
-  registerForm: FormGroup;
-  maxDate: Date;
-  validationErrors: string[] = [];
+  
+  register = true;
+  registerMode = false;
+  users: any;
+  user: User;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService,private fb: FormBuilder, private router: Router) { }
+  constructor(private accountService: AccountService) { 
+    this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
+  }
 
   ngOnInit(): void {
-    this.initializeForm();
-    this.maxDate = new Date();
-    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+    if ( this.user)
+      this.register = false;
   }
 
-  initializeForm() {
-    this.registerForm = this.fb.group ({
-      gender: ['male'],
-      username: ['',Validators.required],
-      knownAs: ['',Validators.required],
-      dateOfBirth: ['',Validators.required],
-      city: ['',Validators.required],
-      country: ['',Validators.required],
-      password: ['', [Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(32)]],
-      confirmPassword: ['', [Validators.required,
-        this.matchValues('password')]]
-    })
-    this.registerForm.controls.password.valueChanges.subscribe(() => {
-      this.registerForm.controls.confirmPassword.updateValueAndValidity;
-    })
+  registerToggle() {
+    this.registerMode = !this.registerMode;
   }
 
-  matchValues(matchTo: string): ValidatorFn {
-    return (control: AbstractControl) => {
-      return control?.value === control?.parent?.controls[matchTo].value ? null : {isMatching: true}
-    }
-  }
-
-  register(){
-    this.accountService.register(this.registerForm.value).subscribe( response =>{
-      this.router.navigateByUrl('/members');
-    }, error =>{
-      this.validationErrors = error;
-    })
-  }
-
-  cancel(){
-    this.cancelRegister.emit(false);
+  cancelRegisterMode(event: boolean) {
+    this.registerMode = event;
   }
 
 }

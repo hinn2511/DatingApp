@@ -1,3 +1,54 @@
 img {
     max-width: 1000px;
 }
+
+.homepage-cover {
+    background-image: url('/../assets/homepage_cover.jpg');
+    margin: -20px -111.6px 0  -111.6px;
+    left: 0;
+    min-width: 100%;
+    height: fit-content;
+    min-height: 600px;
+}
+
+.info {
+    margin: -20px -111.6px 0  -111.6px;
+    left: 0;
+    min-width: 100%;
+    height: fit-content;
+}
+  
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+  }
+  .card-registration .select-arrow {
+    top: 13px;
+  }
+
+.home-card {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.mini-card {
+    margin-top: 50px;
+}
+
+.slogan {
+    font-size: 100px;
+    color: white;
+    font-family: Helvetica;
+}
+
+.slogan-small {
+    font-size: 70px;
+    color: aliceblue;
+}
+
+.btn {
+    border-radius: 10px;
+    font-size: 30px;
+}

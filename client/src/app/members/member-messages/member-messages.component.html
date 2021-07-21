@@ -3,7 +3,7 @@
         class="card-body"
         #scrollMe
         [scrollTop]="scrollMe.scrollHeight"
-        style="overflow: scroll; height: 535px;"
+        style="overflow: scroll; height: 651px;"
     >
         <div  *ngIf="(messageService.messageThread$ | async)?.length === 0">
             <p class="mb-4 mt-4 text-center">No messages yet... Say hi by using message box below</p>       

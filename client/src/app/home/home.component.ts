@@ -9,26 +9,13 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  register = true;
-  registerMode = false;
-  users: any;
-  user: User;
-
-  constructor(private accountService: AccountService) { 
-    this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
+  
+  constructor() {
+    
   }
 
-  ngOnInit(): void {
-    if ( this.user)
-      this.register = false;
-  }
-
-  registerToggle() {
-    this.registerMode = !this.registerMode;
-  }
-
-  cancelRegisterMode(event: boolean) {
-    this.registerMode = event;
+  ngOnInit() {
+    
   }
 
 }
