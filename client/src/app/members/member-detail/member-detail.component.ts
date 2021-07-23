@@ -2,11 +2,13 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
+import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs/operators';
 import { Member } from 'src/app/_models/member';
 import { Message } from 'src/app/_models/message';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
+import { MembersService } from 'src/app/_services/members.service';
 import { MessageService } from 'src/app/_services/message.service';
 import { PresenceService } from 'src/app/_services/presence.service';
 
@@ -26,7 +28,8 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute, private messageService: MessageService,
      public presence: PresenceService, private accountService: AccountService,
-     private router: Router ) {
+     private router: Router, private memberService: MembersService,
+     private toastr: ToastrService ) {
        this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       }
@@ -63,6 +66,11 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
     return imageUrls;
   }
   
+  addLike(member: Member) {
+    this.memberService.addLike(member.username).subscribe(() => {
+      this.toastr.success('You have liked ' + member.knownAs);
+    })
+  }
  
 
   loadMessages() {

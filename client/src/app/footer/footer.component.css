@@ -1,6 +1,35 @@
-nav {
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    margin-top: 200px;
+.footer-logo {
+    max-height: 50px;
 }
+.list-group {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+
+.list-group-item {
+    background: none;
+    border: none;
+}
+
+.list-group-item a{
+    background: none;
+    border: none;
+    color: white;
+}
+.btn {
+    border-radius: 999px;
+    box-shadow: none;
+    width: 50px;
+    height: 50px;
+}
+
+.a {
+    text-decoration: none;
+}
+
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }

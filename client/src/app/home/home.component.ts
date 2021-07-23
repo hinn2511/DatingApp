@@ -9,13 +9,15 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  user: User;
+  showRegisterBtn = true;
   
-  constructor() {
-    
+  constructor(public accountService: AccountService) {
+   
   }
 
   ngOnInit() {
-    
   }
+
 
 }

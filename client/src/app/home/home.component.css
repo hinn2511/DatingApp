@@ -4,6 +4,7 @@ img {
 
 .homepage-cover {
     background-image: url('/../assets/homepage_cover.jpg');
+    background-size: cover;
     margin: -20px -111.6px 0  -111.6px;
     left: 0;
     min-width: 100%;
@@ -38,17 +39,17 @@ img {
 }
 
 .slogan {
-    font-size: 100px;
+    font-size: 6rem;
     color: white;
     font-family: Helvetica;
 }
 
 .slogan-small {
-    font-size: 70px;
+    font-size: 3rem;
     color: aliceblue;
 }
 
 .btn {
     border-radius: 10px;
-    font-size: 30px;
+    font-size: 2rem;
 }

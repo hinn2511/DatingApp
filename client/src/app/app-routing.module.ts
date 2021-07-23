@@ -14,6 +14,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminGuard } from './_guards/admin.guard';
 import { AuthGuard } from './_guards/auth.guard';
+import { AuthedGuard } from './_guards/authed.guard';
 import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 import { MemberDetailedResolver } from './_resolvers/member-detailed.resolver';
 
@@ -33,8 +34,16 @@ const routes: Routes = [
         {path: 'admin', component: AdminPanelComponent, canActivate: [AdminGuard]},
       ]
   },
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  {
+    path: '',
+      runGuardsAndResolvers: 'always',
+      canActivate: [AuthedGuard],
+      children: 
+      [
+        {path: 'login', component: LoginComponent},
+        {path: 'register', component: RegisterComponent},
+      ]
+  },
   {path: 'errors', component: TestErrorComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: 'server-error', component: ServerErrorComponent},

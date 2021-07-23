@@ -3,7 +3,7 @@
         class="card-body"
         #scrollMe
         [scrollTop]="scrollMe.scrollHeight"
-        style="overflow: scroll; height: 651px;"
+        style="overflow: scroll; height: 500px;"
     >
         <div  *ngIf="(messageService.messageThread$ | async)?.length === 0">
             <p class="mb-4 mt-4 text-center">No messages yet... Say hi by using message box below</p>       
@@ -89,7 +89,7 @@
                         class="btn btn-primary"
                         type="submit">
                             <i class="fa fa-paper-plane"></i>
-                            <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
+                            <i *ngIf="loading" class="fa fa-spinner fa-spin ml-1"></i>
                     </button>
                 </div>
             </div>

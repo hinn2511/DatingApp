@@ -1,8 +1,13 @@
 <div class="row">
-    <div class="col-2" *ngFor="let photo of member.photos">
-        <img src="{{photo.url}}" alt="{{photo.url}}" class="img-thumbnail p-1">
+    <div class="col-2 img-wrapper" *ngFor="let photo of member.photos">
+        <img src="{{photo.url}}" alt="{{photo.url}}" 
+            class="img-thumbnail p-1"
+            [class.not-approved]="!photo.isApproved">
+        <div class="text-center img-text" *ngIf="!photo.isApproved">
+            <span class="text-danger">Awaiting approval</span>
+        </div>
         <div class="text-center" style="width: 100px;">
-            <button [disabled]="photo.isMain"
+            <button [disabled]="photo.isMain || !photo.isApproved"
                 (click)="setMainPhoto(photo)"
                 [ngClass]='photo.isMain ? "btn-success active" : "btn-outline-success"'
                 class="btn btn-sm mt-2 mr-2">Main</button>
@@ -13,7 +18,7 @@
         </div>
     </div>
 </div>
-<div class="row mt-3">
+<div class="row mt-5">
     <div class="col-md-3">
         <h3>Add photos</h3>
 
@@ -25,14 +30,13 @@
              <i class="fa fa-upload fa-3x"></i>
             Drop photos here
         </div>
-
-        Multiple
-        <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
+        <h5>Multiple</h5>
+        <input class="form-control" type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
 
         <div class="container mb-2"></div>
-
-        Single
-        <input type="file" ng2FileSelect [uploader]="uploader" />
+        <h5>Single</h5>
+        
+        <input class="form-control" type="file" ng2FileSelect [uploader]="uploader" />
     </div>
 
     <div class="col-md-9" style="margin-bottom: 40px" *ngIf="uploader?.queue?.length">

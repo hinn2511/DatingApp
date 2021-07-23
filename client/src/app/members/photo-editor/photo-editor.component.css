@@ -3,9 +3,25 @@ img.img-thumbnail {
     min-width: 100px !important;
     margin-bottom: 2px;
 }
+
 .nv-file-over {
     border: dotted 3px blue;
 }
+
 input[type=file] {
     color: transparent;
+}
+
+.not-approved {
+    opacity: 0.2;
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+.img-text {
+    position: absolute;
+    bottom: 50%;
+    max-width: 100px;
 }

@@ -3,9 +3,9 @@ img {
 }
 
 .gradient-custom {
-    background: #f093fb;
-    background: -webkit-linear-gradient(to bottom right, rgb(235, 101, 39), rgb(122, 68, 192));
-    background: linear-gradient(to bottom right, rgb(218, 133, 77), rgb(111, 54, 204));
+    background: #4681ff;
+    background: -webkit-linear-gradient(to bottom right, rgb(58, 62, 240), rgb(216, 75, 98));
+    background: linear-gradient(to bottom right, rgb(58, 62, 240), rgb(216, 75, 98));
     margin: -20px -111.6px 0  -111.6px;
     left: 0;
     min-width: 100%;
@@ -23,4 +23,13 @@ img {
   .card-registration .select-arrow {
     top: 13px;
   }
-
+  
+  .card {
+    animation-name: login;
+      animation-duration: 0.5s;
+      animation-timing-function: ease-in-out;
+}
+  @keyframes register {
+    from {right: -200px}
+    to { right: 0;}
+  }

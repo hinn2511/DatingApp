@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { AccountService } from '../../_services/account.service';
 
 @Component({
@@ -15,7 +16,9 @@ export class RegisterContentComponent implements OnInit {
   registerForm: FormGroup;
   maxDate: Date;
   validationErrors: string[] = [];
-
+  agree = false;
+  
+  
   constructor(private accountService: AccountService, private toastr: ToastrService,private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
@@ -43,6 +46,11 @@ export class RegisterContentComponent implements OnInit {
     })
   }
 
+  checked(event: any){
+    this.agree = !this.agree;
+    console.log(this.agree);
+  }
+
   matchValues(matchTo: string): ValidatorFn {
     return (control: AbstractControl) => {
       return control?.value === control?.parent?.controls[matchTo].value ? null : {isMatching: true}
@@ -50,15 +58,18 @@ export class RegisterContentComponent implements OnInit {
   }
 
   register(){
-    this.accountService.register(this.registerForm.value).subscribe( response =>{
-      this.router.navigateByUrl('/members');
-    }, error =>{
-      this.validationErrors = error;
-    })
+    if(this.agree) {
+      this.accountService.register(this.registerForm.value).subscribe( response =>{
+        this.router.navigateByUrl('/members');
+      }, error =>{
+        this.validationErrors = error;
+      })
+    }
   }
 
   cancel(){
     this.cancelRegister.emit(false);
   }
+
 
 }

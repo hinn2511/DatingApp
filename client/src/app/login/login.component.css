@@ -1,9 +1,19 @@
 .bg-image {
-    background-image: url('/../assets/login_cover.jpg');
+    background: #4681ff;
+    background: -webkit-linear-gradient(to bottom left, rgb(27, 64, 231), rgb(236, 183, 199));
+    background: linear-gradient(to bottom left, rgb(27, 64, 231), rgb(12, 167, 89));
     background-size: 100%;
     margin: -20px -111.6px 0  -111.6px;
   }
 
   .card {
       border-radius: 10px;
+      animation-name: login;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+  }
+
+  @keyframes login {
+    from {right: -200px}
+    to { right: 0;}
   }

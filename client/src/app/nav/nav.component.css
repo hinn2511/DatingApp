@@ -2,8 +2,19 @@
     cursor: pointer;
 }
 
-img {
-    height: 30px;
+.avatar {
+    height: 40px;
     border: 2px solid white;
     display: inline;
+    border-radius: 999px;
+}
+
+.icon {
+    height: 40px;
+}
+
+.icon:hover {
+    transform: scale(1.1,1.1);
+    animation-duration: 3000ms;
+    animation-timing-function: ease-out;
 }

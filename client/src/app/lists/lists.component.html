@@ -1,19 +1,34 @@
-<div class="text-center mt-3">
-    <h2>{{predicate === 'liked' ? 'Members I like' : 'Members who likes me'}}</h2>
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2>{{predicate === 'liked' ? 'Members I like' : 'Members who likes me'}}</h2>
+    </div>
+    <div class="btn-group col-md-4" name="predicate">
+        <button class="btn btn-light" btnRadio='liked'
+            [(ngModel)]="predicate" (click)="loadLikes()" (click)="changeMode('liked')">
+            <i class="fa fa-heart"></i> Members I like</button>
+        <button class="btn btn-light" btnRadio='likedBy'
+            [(ngModel)]="predicate" (click)="loadLikes()" (click)="changeMode('likedBy')">
+            <i class="fa fa-thumbs-up"></i> Members who likes me</button>
+    </div>
 </div>
 
-<div class="container mt-3">
-    <div class="row col-2">
-        <div class="btn-group" name="predicate">
-            <button class="btn btn-primary" btnRadio='liked'
-                [(ngModel)]="predicate" (click)="loadLikes()">Members I like</button>
-            <button class="btn btn-primary" btnRadio='likedBy'
-                [(ngModel)]="predicate" (click)="loadLikes()">Members who likes me</button>
-        </div>
-    </div>
+<div
+    class="container mt-3"
+    style="min-height: 500px;">
     <div class="row mt-3">
         <div class="col-2" *ngFor="let member of members">
-            <app-member-card [member]="member"></app-member-card>
+            <app-member-card [member]="member"></app-member-card> 
+        </div>
+        <div 
+            *ngIf="members?.length === 0"
+            style="margin-bottom: 200px; margin-top: 200px;"
+            class="text-center">
+            <h2
+                *ngIf="mode == 'liked'"
+                class="text-muted">You haven't liked anyone yet</h2>
+            <h2
+                *ngIf="mode == 'likedBy'"
+                class="text-muted">You haven't liked by anyone yet</h2>
         </div>
     </div>
 </div>

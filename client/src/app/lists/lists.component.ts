@@ -14,6 +14,7 @@ export class ListsComponent implements OnInit {
   pageNumber = 1;
   pageSize = 18;
   pagination: Pagination;
+  mode = 'liked';
 
   constructor(private memberService: MembersService) { }
 
@@ -31,6 +32,14 @@ export class ListsComponent implements OnInit {
   pageChanged(event: any) {
     this.pageNumber = event.page;
     this.loadLikes();
+    
+  }
+
+  changeMode(mode: string) {
+    if(this.mode == 'liked' && mode == 'likedBy')
+      this.mode = 'likedBy';
+    if(this.mode == 'likedBy' && mode == 'liked')
+      this.mode = 'liked';
   }
 
 }
