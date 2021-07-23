@@ -13,12 +13,13 @@ export class AuthedGuard implements CanActivate {
   user: User;
 
   constructor(private accountService: AccountService, private router: Router, private toastr: ToastrService) {
-    this.accountService.currentUser$.pipe(take(1)).subscribe(user => {
-      this.user = user;
-    })
+    
   }
 
   canActivate( ): boolean {
+    this.accountService.currentUser$.pipe(take(1)).subscribe(user => {
+      this.user = user;
+    })
     if (this.user) {
       this.router.navigateByUrl('/');
       return false;
