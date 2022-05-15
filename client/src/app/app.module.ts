@@ -35,7 +35,6 @@ import { RolesModalComponent } from './_modals/roles-modal/roles-modal.component
 import { ConfirmDialogComponent } from './_modals/confirm-dialog/confirm-dialog.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
-import { RegisterContentComponent } from './register/register-content/register-content.component';
 
 @NgModule({
   declarations: [
@@ -63,8 +62,7 @@ import { RegisterContentComponent } from './register/register-content/register-c
     RolesModalComponent,
     ConfirmDialogComponent,
     LoginComponent,
-    FooterComponent,
-    RegisterContentComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,

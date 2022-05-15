@@ -1,3 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  width: 100% !important;
+}
+
+.bg-primary {
+  background-color: #fea82f !important;
+}
+
+.bg-secondary {
+  background-color: #ffc288 !important;
+}
+
+.btn-primary {
+  background-color: #fea82f !important;
+  color: white !important;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #dd942d !important;
+}
+
+.btn-secondary {
+  background-color: #ffc288 !important;
+  color: white !important;
+}
+
+.btn-secondary:hover {
+  background-color: #c49468 !important;
+}
+
+.bg-dark {
+  background-color: #36322c !important;
+}
+
+.text-primary {
+  color: #fea82f !important;
+}
+
+.text-secondary {
+  color: #ffc288 !important;
+}
+
+.text-brand {
+  font-family: 'Oleo Script Swash Caps', cursive;
+}
+
 .tab-panel {
     border: 1px solid #ddd;
     padding: 10px;
@@ -48,4 +102,38 @@
     min-height: 100vh;
     height: auto;
     margin: 0;
+  }
+
+  .pagination > li {
+    margin: 0 0.1rem;
+  }
+  
+  .pagination > .pagination-first.disabled > a,
+  .pagination > .pagination-prev.disabled > a,
+  .pagination > .pagination-next.disabled > a,
+  .pagination > .pagination-last.disabled > a {
+    text-align: center;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: #d6d6d6;
+  }
+  
+  
+  .pagination > .pagination-first > a,
+  .pagination > .pagination-prev > a,
+  .pagination > .pagination-next > a,
+  .pagination > .pagination-last > a,
+  .pagination > .pagination-page > a {
+    text-align: center;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: #000000;
+  }
+  
+  .pagination > .pagination-page.active > a{
+    text-align: center;
+    background-color: #fea82f !important;
+    border-color: #fea82f !important;
+    border-radius: 3px;
+    color: #ffffff;
   }

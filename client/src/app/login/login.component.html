@@ -1,31 +1,26 @@
-<div class="row min-vh-100 bg-image">
-    <div class="card m-auto col-md-4 px-5">
-      <h1 class="text-center text-primary mt-4">Sign in</h1>
+<div class="container px-0" style="min-height: 100vh; min-width: 100% !important">
+  <div class="d-flex justify-content-end w-100 min-vh-100 bg-image">
+    <div class="card p-5 m-5 shadow">
+      <h2 class="text-center text-primary mt-4">Sign in</h2>
       <hr>
-      <div class="m-3">
-        <form *ngIf="(accountService.currentUser$ | async) === null" class="form-group" #longinForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+      <div class="">
+        <form *ngIf="(accountService.currentUser$ | async) === null" class="form-group" #longinForm="ngForm"
+          (ngSubmit)="login()" autocomplete="off">
           <label for="username" class="mt-4 mb-2">Username</label>
-          <input 
-              name="username"
-              [(ngModel)]="model.username"
-              class="form-control" 
-              type="text" 
-              placeholder="Username">
-              <label for="password" class="mt-4 mb-2">Password</label>
-              <input 
-              name="password"
-              [(ngModel)]="model.password"
-              class="form-control mb-2" 
-              type="password" 
-              placeholder="Password">
-              <a href="/resetpw" class="text-decoration-none text-info">Forgot your password?</a>
-            <button class="btn btn-success btn-lg m-auto mt-4" style="width: 100%;" type="submit">Login</button>
+          <input name="username" [(ngModel)]="model.username" class="form-control" type="text" placeholder="Username">
+          <label for="password" class="mt-4 mb-2">Password</label>
+          <input name="password" [(ngModel)]="model.password" class="form-control mb-2" type="password"
+            placeholder="Password">
+          <a href="/resetpw" class="text-decoration-none text-info">Forgot your password?</a>
+          <button class="btn btn-secondary btn-lg m-auto mt-4" style="width: 100%;" type="submit">Login</button>
         </form>
       </div>
-      <div class="text-center  mb-4">
-        Don't have an account. 
+      <div class="text-center mb-4">
+        Don't have an account.
         <a href="/register" class="text-decoration-none text-info">Sign up now</a>
       </div>
-      
+
+    </div>
   </div>
+
 </div>

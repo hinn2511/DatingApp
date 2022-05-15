@@ -20,6 +20,7 @@ import { MemberDetailedResolver } from './_resolvers/member-detailed.resolver';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {
       path: '',
       runGuardsAndResolvers: 'always',

@@ -1,35 +1,21 @@
-img {
-    max-width: 1000px;
+.bg-image {
+  background-image: url("../../assets/register.jpg");
+    object-fit: contain;
+    background-repeat: no-repeat;
+    background-position: 30% 30%;
+
 }
 
-.gradient-custom {
-    background: #4681ff;
-    background: -webkit-linear-gradient(to bottom right, rgb(58, 62, 240), rgb(216, 75, 98));
-    background: linear-gradient(to bottom right, rgb(58, 62, 240), rgb(216, 75, 98));
-    margin: -20px -111.6px 0  -111.6px;
-    left: 0;
-    min-width: 100%;
-    height: fit-content;
-    min-height: 700px;
-
-  }
-  
-  .card-registration .select-input.form-control[readonly]:not([disabled]) {
-    font-size: 1rem;
-    line-height: 2.15;
-    padding-left: .75em;
-    padding-right: .75em;
-  }
-  .card-registration .select-arrow {
-    top: 13px;
-  }
-  
-  .card {
-    animation-name: login;
+.card { 
+  min-width: 40vw;
+  border-radius: none !important;
+  border: none !important;
+    animation-name: register;
       animation-duration: 0.5s;
       animation-timing-function: ease-in-out;
 }
-  @keyframes register {
-    from {right: -200px}
-    to { right: 0;}
-  }
+
+@keyframes register {
+  from {right: -200px}
+  to { right: 0;}
+}

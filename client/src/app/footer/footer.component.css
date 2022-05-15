@@ -11,6 +11,7 @@
 .list-group-item {
     background: none;
     border: none;
+    padding: 10px 0;
 }
 
 .list-group-item a{

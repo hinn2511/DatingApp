@@ -1,3 +1,11 @@
 .img-circle {
     max-height: 30px;
 }
+
+.btn-danger {
+    background-color: red !important;
+}
+
+td {
+    vertical-align: middle;
+}

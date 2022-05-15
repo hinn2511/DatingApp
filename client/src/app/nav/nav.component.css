@@ -9,12 +9,31 @@
     border-radius: 999px;
 }
 
-.icon {
-    height: 40px;
+.brand > img {
+    max-width: 30px;
+    max-height: 30px;
+    vertical-align: middle;
+    transform: scale(1,1);
+    transition: all ease-in-out 400ms;
+    cursor: pointer;
 }
 
-.icon:hover {
-    transform: scale(1.1,1.1);
-    animation-duration: 3000ms;
-    animation-timing-function: ease-out;
+.brand > h4 {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
 }
+
+.brand > img:hover {
+    transform: scale(1.1, 1.1);
+    transition: all ease-in-out 400ms;
+    
+}
+
+
+.active {
+    border-radius: 0px !important;
+    border-bottom: 3px solid #fea82f;
+  }
+  
