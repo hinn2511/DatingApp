@@ -27,11 +27,12 @@
             </select>
         </div>
 
-        <button class="btn btn-primary ml-1" type="submit">
+        <button class="btn btn-primary ml-1 mt-3 mt-md-0" type="submit">
             <i class="fa fa-check"></i> Apply Filters</button>
-        <button (click)="resetFilter()" class="btn btn-light ml-1" type="submit">
+        <button (click)="resetFilter()" class="btn btn-light ml-1 mt-3 mt-md-0" type="submit">
             <i class="fa fa-refresh"></i> Reset Filters</button>
-        <div class="col pr-0">
+
+        <div class="col pr-0 mt-3 mt-md-0">
             <div class="btn-group float-right">
                 <button 
                     type="button"
@@ -61,7 +62,7 @@
 </div>
 
 <div class="row mx-0 px-4" style="min-height: 400px;">
-    <div *ngFor="let member of members" class="col-2">
+    <div *ngFor="let member of members" class="col-6 col-md-3 col-lg-2">
         <app-member-card [member]="member"></app-member-card>
     </div>
 </div>
